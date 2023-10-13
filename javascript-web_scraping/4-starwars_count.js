@@ -10,8 +10,10 @@ request(url, (err, response, body) => {
   let count = 0;
   const data = JSON.parse(body).results;
   for (const film of data) {
-    if (film.characters.includes(`https://swapi-api.hbtn.io/api/people/${charID}/`)) {
-      count += 1;
+    for (const char of film.characters) {
+      if (char.includes(charID)) {
+        count += 1;
+      }
     }
   }
   console.log(count);
