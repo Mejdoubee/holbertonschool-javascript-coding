@@ -13,6 +13,7 @@ request(url, (err, response, body) => {
     for (const char of film.characters) {
       if (char.includes(charID)) {
         count += 1;
+        break;
       }
     }
   }
